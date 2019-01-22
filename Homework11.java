@@ -1,19 +1,20 @@
 import java.util.ArrayList;
-
+//George Doster
 public class Homework11 {
 
+private ArrayList<Integer> arrList;
 	/* Finish the constructor and create any necessary instance
 	 * variables. The constructor should create and save an
 	 * ArrayList of int values
 	 */
 	public Homework11() {
-
+ arrList = new ArrayList<Integer>();
 	}
 
 	/* Return the stored ArrayList
 	 */
 	public ArrayList<Integer> getList() {
-
+		return arrList;
 	}
 
 	/* Fill the stored array list with integers, starting
@@ -21,7 +22,11 @@ public class Homework11 {
 	 * the resultant ArrayList should be n - m.
 	 */
 	public void problem1(int n, int m) {
-
+		int total = m - n;
+		for (int i = 0; i < total; i++){
+			arrList.add(n);
+			n++;
+		}
 	}
 
 	/* Remove from the stored array list all numbers that
@@ -30,7 +35,14 @@ public class Homework11 {
 	 * the right shift their indices down one.
 	 */
 	public void problem2(int n) {
-
+		int counter = 0;
+		while (counter < arrList.size()){
+			if (arrList.get(counter) % n == 0){
+				arrList.remove(arrList.get(counter));
+			}else{
+				counter++;
+			}
+		}
 	}
 
 	/* Problem 3:
@@ -38,7 +50,11 @@ public class Homework11 {
 	 * class. Ensure that you create the constructor
 	 * appropriately and import java.util.ArrayList.
 	 */
-
+public class Homework11A extends Homework11 {
+	public Homework11A(){
+		super();
+	}
+}
 	/* Problem 4:
 	 * Write the method problem4 in the Homework11A
 	 * class. This should calculate and return the sum
@@ -46,12 +62,27 @@ public class Homework11 {
 	 * header is:
 	 * public int problem4() {
 	 */
-
+public int problem4() {
+	int total = 0;
+	for(int i = 0; i< arrList.size(); i++){
+		total += arrList.get(i);
+	} return total;
+}
 	/* Problem 5:
 	 * In the Homework11A class, override the problem2
 	 * method. problem2 in Homework11A should instead
 	 * only keep the elements that evenly divide n
 	 */
+	 public void problem2(int n){
+		 int i = 0;
+		 while (i < arrList.size()){
+			 if(arrList.get(i) % n != 0){
+				 arrList.remove(arrList.get(i));
+			 }else{
+				 i++;
+			 }
+		 }
+	 }
 
 	public static void main(String[] args) {
 		boolean passed = true;
